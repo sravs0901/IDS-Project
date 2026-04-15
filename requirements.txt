@@ -1,0 +1,24 @@
+pip install elm
+pip install sklearn-extensions
+
+
+
+https://medium.com/@aneesha/recursive-feature-elimination-with-scikit-learn-3a2cbdf23fb7
+https://hub.packtpub.com/4-ways-implement-feature-selection-python-machine-learning/
+
+
+srhl_tanh = MLPRandomLayer(n_hidden=2, activation_func='tanh')
+    cls = GenELMClassifier(hidden_layer=srhl_tanh)
+    estimator = Lasso()
+    sfm = SelectFromModel(estimator, threshold=0.01)
+    sfm.fit(X_train,y_train)
+    feature_idx = sfm.get_support()
+    X_train = sfm.transform(X_train) 
+    shape = np.shape(X_train)
+    print("Before Shape of the dataset ",len(feature_idx))
+    X_test  = sfm.transform(X_test)
+    #sfm.fit(X_train,y_train)
+
+    
+    cls.fit(X_train, y_train)
+    return cls
